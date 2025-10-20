@@ -1,0 +1,203 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #fff;
+  font-family: "Inter", sans-serif;
+}
+button {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.question-btn {
+  width: 50px;
+  height: 50px;
+  background-color: #4b2aad;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+}
+.container {
+  margin: 0 250px;
+}
+table {
+  margin-bottom: 100px;
+  width: 100%;
+}
+.header-table {
+  width: 100%;
+  padding: 15px;
+}
+.header-content {
+  width: 50%;
+}
+.header-table .header-content .logo {
+  display: inline-block;
+  color: #4b2aad;
+}
+.header-table .header-content span {
+  margin-left: 15px;
+  color: rgb(72, 72, 72);
+}
+.header-buttons {
+  width: 50%;
+}
+.header-buttons .login {
+  font-size: 16px;
+}
+.default-btn {
+  background-color: #4b2aad;
+  padding: 10px 15px;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Hero Section */
+.hero td {
+  vertical-align: top;
+}
+.digt {
+  font-size: 8px;
+  color: grey;
+  margin-bottom: 13px;
+  display: block;
+}
+.titles {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+.description {
+  line-height: 1.6;
+  color: rgb(72, 72, 72);
+  margin: 15px 0;
+}
+.hero-img {
+  width: 423px;
+  border-radius: 10px;
+}
+
+/* Intro Section */
+.intro {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.intro h2 {
+  font-family: "Playfair Display", serif;
+  margin-bottom: 10px;
+}
+
+/* Details Section */
+.details {
+  border-spacing: 20px 0;
+}
+.details tr td {
+  width: 33.33%;
+  vertical-align: baseline;
+}
+
+.details .icon {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(244, 238, 234);
+  border-radius: 50%;
+  line-height: 50px;
+}
+.details .icon img {
+  vertical-align: middle;
+  width: 28px;
+  height: 28px;
+}
+.details .title {
+  margin: 10px 0;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+}
+.details .description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgb(72, 72, 72);
+}
+
+/* Online Courses */
+.hero .learn-more {
+  color: #4b2aad;
+}
+.hero .learn-more:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Rate */
+.intro .star {
+  width: 25px;
+  height: 25px;
+  margin-bottom: 10px;
+}
+
+/* Colorful Intro */
+.colorful-intro {
+  background-color: #201444;
+  text-align: center;
+  color: #fff;
+  padding: 50px 40px;
+  border-radius: 10px;
+  margin-bottom: 100px;
+}
+.colorful-description {
+  margin-bottom: 20px;
+}
+.second-btn {
+  background-color: #9484c7;
+  padding: 10px 15px;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Footer */
+.footer {
+  background-color: #f5eeeb;
+  padding: 70px 0;
+}
+.footer-row {
+  margin-bottom: 20px;
+}
+.footer-row h4 {
+  display: inline-block;
+}
+.footer-row a {
+  color: grey;
+  text-decoration: underline;
+  margin: 0 5px;
+}
+.footer-bottom {
+  font-size: 13px;
+  color: #8a8784;
+  border-top: 1px solid #e5dfdb;
+  margin-top: 30px;
+  padding-top: 15px;
+}
+
+.footer-bottom a {
+  color: #8a8784;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
