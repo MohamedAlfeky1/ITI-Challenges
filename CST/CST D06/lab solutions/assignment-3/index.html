@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #74b9ff, #a29bfe);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      form {
+        background: #fff;
+        padding: 40px 35px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        width: 320px;
+        text-align: center;
+        animation: fadeIn 0.6s ease;
+      }
+
+      form h2 {
+        margin-bottom: 20px;
+        color: #333;
+        font-weight: 600;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 12px 15px;
+        margin: 10px 0 18px 0;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+      }
+
+      input[type="text"]:focus,
+      input[type="password"]:focus {
+        border-color: #6c5ce7;
+        box-shadow: 0 0 5px rgba(108, 92, 231, 0.3);
+      }
+
+      input[type="submit"] {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #6c5ce7, #0984e3);
+        color: #fff;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+      }
+
+      ::placeholder {
+        color: #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="" method="get">
+      <h2>Login</h2>
+      <input type="text" name="userName" placeholder="Enter your username" />
+      <input
+        type="password"
+        name="password"
+        placeholder="Enter your password"
+      />
+      <input type="submit" value="Log In" />
+    </form>
+
+    <script>
+      var getUserName = location.search.slice(1).split("&")[0].split("=")[1];
+      var getPassword = location.search.slice(1).split("&")[1].split("=")[1];
+
+      if (getUserName === "ali" && getPassword === "123") {
+        window.open("welcomePopup.html?userName=ali");
+      } else {
+        window.open(`error.html?userName=${getUserName}`);
+      }
+    </script>
+  </body>
+</html>

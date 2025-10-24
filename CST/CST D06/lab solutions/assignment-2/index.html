@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p.counter {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      var count = 1;
+      setInterval(function () {
+        document.write(
+          `<div style="display:block; border: 2px solid red; width: fit-content;">
+            <p style="border: 1px solid red; width: fit-content; margin:2px">${count}</p>
+          </div>`
+        );
+        count++;
+        document.title = count;
+      }, 1000);
+    </script>
+  </body>
+</html>

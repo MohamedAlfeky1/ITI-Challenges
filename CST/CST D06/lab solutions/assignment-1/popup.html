@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var chars = "Welcome To JS";
+      function letterByLetter() {
+        var charsArr = chars.split("");
+        var count = 0;
+
+        var logChars = setInterval(function () {
+          document.write(charsArr[count]);
+          count++;
+
+          if (count >= charsArr.length) {
+            clearInterval(logChars);
+            window.close();
+          }
+        }, 1000);
+      }
+
+      letterByLetter();
+    </script>
+  </body>
+</html>

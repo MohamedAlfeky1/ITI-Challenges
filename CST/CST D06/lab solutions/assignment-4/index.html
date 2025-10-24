@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <script>
+      var students = [
+        { name: "Ali", age: 20, Crs: "CS" },
+        { name: "Sara", age: 22, Crs: "Math" },
+        { name: "Omar", age: 19, Crs: "Physics" },
+        { name: "Laila", age: 21, Crs: "CS" },
+        { name: "Hassan", age: 23, Crs: "Engineering" },
+        { name: "Mona", age: 20, Crs: "Biology" },
+        { name: "Kareem", age: 24, Crs: "Math" },
+        { name: "Noor", age: 18, Crs: "CS" },
+      ];
+
+      // 1- Display all students
+      document.write("<h4>1- Display all students</h4>");
+      function displayStudents(arr) {
+        arr.map((ele) => {
+          document.write(
+            `
+            <h4>name: ${ele.name} - Age: ${ele.age} - Courses: ${ele.Crs}</h4>
+            `
+          );
+        });
+      }
+      displayStudents(students);
+      document.write("<hr />");
+
+      // 2-find and Search for a student by name and print their details.
+      document.write(
+        "<h4>2-find and Search for a student by name and print their details.</h4>"
+      );
+      function printUser(userName) {
+        var findStudent = students.find((ele) => ele.name === userName);
+        document.write(
+          `<div>
+            <h4>name: ${findStudent.name}</h4>
+            <h4>Age: ${findStudent.age}</h4>
+            <h4>Courses: ${findStudent.Crs}</h4>
+          </div>`
+        );
+      }
+      printUser("Noor");
+      document.write("<hr />");
+
+      // 3- Find how many students are in the array(count Students).
+      document.write(
+        "<h4>3- Find how many students are in the array(count Students)."
+      );
+      console.log(students.length);
+
+      // 4-Get all students who are in "CS"
+      document.write("<h4>4-Get all students who are in 'CS'");
+      function csStudents(crs) {
+        var studentsFilter = students.filter((ele) => ele.Crs === crs);
+        studentsFilter.map((ele) => {
+          document.write(
+            `<div>
+            <h4>name: ${ele.name}</h4>
+            <h4>Age: ${ele.age}</h4>
+            <h4>Courses: ${ele.Crs}</h4>
+            <h4>------------------------------------------</h4>
+          </div>`
+          );
+        });
+      }
+      csStudents("CS");
+      document.write("<hr />");
+
+      // 5-Find youngest student
+      document.write("<h4>5-Find youngest student");
+      var youngestSt = students.sort((a, b) => {
+        return a.age - b.age;
+      })[0];
+      document.write(
+        `<div>
+            <h4>name: ${youngestSt.name}</h4>
+            <h4>Age: ${youngestSt.age}</h4>
+            <h4>Courses: ${youngestSt.Crs}</h4>
+          </div>`
+      );
+      document.write("<hr />");
+
+      // 6- Sort Students by age
+      document.write("<h4>6- Sort Students by age</h4>");
+      var ageSort = students.sort((a, b) => {
+        return a.age - b.age;
+      });
+
+      ageSort.map((ele) => {
+        document.write(
+          `<div>
+            <h4>name: ${ele.name}</h4>
+            <h4>Age: ${ele.age}</h4>
+            <h4>Courses: ${ele.Crs}</h4>
+            <h5>------------------------------------------</h5>
+          </div>`
+        );
+      });
+      document.write("<hr />");
+
+      // 7-Create a new array with only student names
+      document.write("<h4>7-Create a new array with only student names");
+      var studentsNamesArr = students.map((ele) => ele.name);
+
+      studentsNamesArr.map((ele) => {
+        document.write(
+          `<div>
+            <h4>name: ${ele}</h4>
+          </div>`
+        );
+      });
+      document.write("<hr />");
+
+      // 8-Check if all students are above age 18 and return true or false
+      document.write(
+        "<h4>8-Check if all students are above age 18 and return true or false"
+      );
+      var ageState = null;
+      var checkAge = students.map((ele) => {
+        if (ele.age > 18) {
+          ageState = "true";
+        } else {
+          ageState = "false";
+        }
+      });
+      document.write(`<h4>AgeState: ${ageState}</h4>`);
+      document.write("<hr />");
+
+      // 9-return Students Who Have the Same Crs
+      document.write("<h4>9-return Students Who Have the Same Crs");
+      function SameCrs(courseName) {
+        var sameCrsStudents = students.filter((ele) => ele.Crs === courseName);
+        document.write(`<h4>Students who have the ${courseName}</h4>`);
+
+        sameCrsStudents.map((ele) => {
+          document.write(`
+            <h4>name: ${ele.name}</h4>
+            <h4>Age: ${ele.age}</h4>
+            <h4>Courses: ${ele.Crs}</h4>
+            <h5>------------------------------------------</h5>
+        `);
+        });
+        document.write(
+          `<h4>*********************************************************************</h4>`
+        );
+      }
+      SameCrs("CS");
+      SameCrs("Math");
+      SameCrs("Physics");
+      SameCrs("Engineering");
+      SameCrs("Biology");
+      document.write("<hr />");
+
+      // 10-Calculate the average age of all students.
+      document.write("<h4>10-Calculate the average age of all students.");
+      function avrgAgs() {
+        var studentsAgs = students.map(function (e) {
+          return e.age;
+        });
+        var totalAges =
+          studentsAgs.reduce(function (acc, curr) {
+            return acc + curr;
+          }) / students.length;
+        document.write(
+          `<h4>average age of all students is: ${Math.round(totalAges)}</h4>`
+        );
+      }
+      document.write("<hr />");
+
+      // 11-Sort and Find top 3 oldest students
+      document.write("<h4>11-Sort and Find top 3 oldest students");
+      function findOldes(num) {
+        var sortAges = students.sort((a, b) => {
+          return a.age - b.age;
+        });
+        for (var i = sortAges.length - 1; i >= sortAges.length - num; i--) {
+          document.write(`
+            <h4>name: ${sortAges[i].name}</h4>
+            <h4>Age: ${sortAges[i].age}</h4>
+            <h4>Courses: ${sortAges[i].Crs}</h4>
+            <h5>------------------------------------------</h5>
+        `);
+        }
+      }
+      findOldes(4);
+      document.write("<hr />");
+
+      // 12-Find if there are students with the same name.
+      document.write("<h4>12-Find if there are students with the same name.");
+      function checkDuplicates() {
+        var names = students.map((ele) => ele.name);
+        var duplicates = names.filter(
+          (name, index) => names.indexOf(name) !== index
+        );
+        if (duplicates.length > 0) {
+          document.write("<h4>Students with same name:</h4>");
+        } else {
+          document.write("<h4>No students have the same name.</h4>");
+        }
+      }
+      checkDuplicates();
+      document.write("<hr />");
+
+      // 13-Reverse the array without using .reverse().
+      document.write(
+        "<h4>Reverse the array without using .reverse() -- *Check Console*"
+      );
+      function reverseArr(arr) {
+        var newArr = [];
+        for (var i = arr.length - 1; i >= 0; i--) {
+          newArr.push(arr[i]);
+        }
+        return newArr;
+      }
+      console.log("Reverse Array", reverseArr(students));
+      document.write("<hr />");
+
+      // 14-Add a new property email for each student in the format: name.toLowerCase+"@iti.com"
+      document.write(
+        "<h4>Add a new property email for each student in the format: name.toLowerCase+'@iti.com' *Check Console*"
+      );
+      students.forEach((student) => {
+        student.email = student.name.toLowerCase() + "@iti.com";
+      });
+      console.log(students);
+      document.write("<hr />");
+    </script>
+  </body>
+</html>
+
+<!-- 
+    //   `<div>
+            //   <h4>name: ${studentsFilter.name}</h4>
+            //   <h4>Age: ${studentsFilter.age}</h4>
+            //   <h4>Courses: ${studentsFilter.Crs}</h4>
+            // </div>`;
+
+-->
