@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To do list</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      body {
+        background: #f5f6fa;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        padding-top: 60px;
+      }
+
+      .todolist {
+        width: 90%;
+        max-width: 450px;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        padding: 25px 20px;
+      }
+
+      .add-task {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      #addInput {
+        flex: 1;
+        padding: 10px 15px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+        outline: none;
+        transition: 0.3s;
+      }
+
+      #addInput:focus {
+        border-color: #00a8ff;
+        box-shadow: 0 0 5px rgba(0, 168, 255, 0.4);
+      }
+
+      #addBtn {
+        background: #00a8ff;
+        border: none;
+        color: white;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      #addBtn:hover {
+        background: #0097e6;
+      }
+
+      .tasks div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #f1f2f6;
+        padding: 10px 15px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        transition: 0.3s;
+      }
+
+      .tasks div:hover {
+        background: #dcdde1;
+      }
+
+      .todoTask {
+        font-size: 16px;
+        cursor: pointer;
+        flex: 1;
+      }
+
+      .delBtn {
+        background: #e84118;
+        border: none;
+        color: white;
+        font-size: 14px;
+        padding: 6px 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .delBtn:hover {
+        background: #c23616;
+      }
+
+      .todoTask.done {
+        text-decoration: line-through;
+        color: #7f8fa6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="todolist">
+      <div class="add-task">
+        <input type="text" placeholder="Add new task...." id="addInput" />
+        <button id="addBtn">Add</button>
+      </div>
+      <div class="tasks" id="tasksHolder"></div>
+    </div>
+
+    <script>
+      var addInput = document.getElementById("addInput");
+      var addBtn = document.getElementById("addBtn");
+      var tasksHolder = document.getElementById("tasksHolder");
+
+      addBtn.addEventListener("click", function () {
+        var userTaskDiv = document.createElement("div");
+        var taskContent = document.createElement("span");
+        var deleteBtn = document.createElement("button");
+
+        taskContent.textContent = addInput.value;
+        taskContent.classList.add("todoTask");
+
+        deleteBtn.textContent = "Delete";
+        deleteBtn.classList.add("delBtn");
+
+        taskContent.addEventListener("click", function () {
+          taskContent.style.textDecoration = "line-through";
+        });
+
+        deleteBtn.addEventListener("click", function () {
+          userTaskDiv.remove();
+        });
+
+        userTaskDiv.appendChild(taskContent);
+        userTaskDiv.appendChild(deleteBtn);
+        tasksHolder.appendChild(userTaskDiv);
+      });
+    </script>
+  </body>
+</html>

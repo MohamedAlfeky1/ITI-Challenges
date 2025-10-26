@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f9fc;
+        margin: 20px;
+      }
+
+      h4 {
+        color: #333;
+        text-align: center;
+      }
+
+      table {
+        width: 90%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        text-align: center;
+        padding: 12px;
+      }
+
+      th {
+        background-color: #007bff;
+        color: white;
+        text-transform: capitalize;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      tr:hover {
+        background-color: #e9f5ff;
+      }
+
+      img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      var xhr = new XMLHttpRequest();
+      var tableData;
+
+      xhr.open(
+        "Get",
+        "https://api.jsonbin.io/v3/b/68fcf992d0ea881f40bb2b6c",
+        true
+      );
+      xhr.send("");
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          tableData = JSON.parse(xhr.responseText).record;
+          console.log(tableData);
+
+          var table = document.createElement("table");
+          table.innerHTML += `
+            <tr>
+              <th>firstName</th>
+              <th>LastName</th>
+              <th>Phone</th>
+              <th>address</th>
+              <th>track</th>
+              <th>Image</th>
+            </tr>
+            `;
+
+          tableData.forEach(function (elm) {
+            table.innerHTML += `
+            <tr>
+              <td>${elm.firstName}</td>
+              <td>${elm.lastName}</td>
+              <td>${elm.phone}</td>
+              <td>${elm.address}</td>
+              <td>${elm.track}</td>
+              <td><img src=${elm.image}/></td>
+            </tr>
+            `;
+          });
+          document.body.appendChild(table);
+        }
+      };
+    </script>
+  </body>
+</html>
