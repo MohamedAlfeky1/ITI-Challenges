@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #f8f9fb;
+
+        align-items: center;
+      }
+      .filters {
+        margin: 0 0 30px 0;
+      }
+      #search {
+        width: 275px;
+        padding: 5px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 60%;
+        background: white;
+        box-shadow: 0 8px 17px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        overflow: hidden;
+        text-align: center;
+      }
+
+      th {
+        background-color: #0078d7;
+        color: white;
+        padding: 12px;
+        font-size: 18px;
+        letter-spacing: 0.5px;
+      }
+
+      td {
+        padding: 10px;
+        font-size: 16px;
+        color: #333;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f6fa;
+      }
+
+      tr:hover {
+        background-color: #dceeff;
+        transition: 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="filters">
+      <input type="text" name="search" id="search" />
+      <select name="sort" id="sort">
+        <option value="0">Sort Table</option>
+        <option value="name">By Name</option>
+        <option value="age">By Age</option>
+      </select>
+    </div>
+
+    <table id="students-table"></table>
+
+    <script>
+      var students = [
+        { name: "Ali", age: 20, Crs: "CS" },
+        { name: "Sara", age: 22, Crs: "Math" },
+        { name: "Omar", age: 19, Crs: "Physics" },
+        { name: "Laila", age: 21, Crs: "CS" },
+        { name: "Hassan", age: 23, Crs: "Engineering" },
+        { name: "Mona", age: 20, Crs: "Biology" },
+        { name: "Kareem", age: 24, Crs: "Math" },
+        { name: "Noor", age: 18, Crs: "CS" },
+      ];
+
+      var studentsTable = document.getElementById("students-table");
+      var searchInput = document.getElementById("search");
+
+      function displayTable(data) {
+        studentsTable.innerHTML = "";
+
+        var headerRow = document.createElement("tr");
+        var headers = ["Name", "Age", "Course"];
+        headers.forEach(function (head) {
+          var th = document.createElement("th");
+          th.textContent = head;
+          headerRow.appendChild(th);
+        });
+        studentsTable.appendChild(headerRow);
+
+        data.forEach(function (student) {
+          var row = document.createElement("tr");
+
+          var nameCell = document.createElement("td");
+          nameCell.textContent = student.name;
+          row.appendChild(nameCell);
+
+          var ageCell = document.createElement("td");
+          ageCell.textContent = student.age;
+          row.appendChild(ageCell);
+
+          var courseCell = document.createElement("td");
+          courseCell.textContent = student.Crs;
+          row.appendChild(courseCell);
+
+          studentsTable.appendChild(row);
+        });
+      }
+
+      // Initial display
+      displayTable(students);
+
+      // Search function
+      searchInput.addEventListener("keyup", function (e) {
+        var value = e.target.value.toLowerCase();
+
+        var filtered = students.filter(function (student) {
+          return (
+            student.name.toLowerCase().includes(value) ||
+            student.age.toString().includes(value)
+          );
+        });
+
+        displayTable(filtered);
+      });
+
+      // Sort function
+      var sortSelect = document.getElementById("sort");
+
+      sortSelect.addEventListener("change", function (e) {
+        var value = e.target.value;
+        var sortedStudents = [...students];
+
+        if (value === "name") {
+          sortedStudents.sort((a, b) => a.name.localeCompare(b.name));
+        } else if (value === "age") {
+          sortedStudents.sort((a, b) => a.age - b.age);
+        }
+
+        displayTable(sortedStudents);
+      });
+    </script>
+  </body>
+</html>
