@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        overflow-x: hidden;
+      }
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+      }
+      hr {
+        margin: 50px 0;
+      }
+      .main {
+        width: 200px;
+        height: 100px;
+        background-color: red;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 280px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        padding: 10px 14px;
+        font-size: 15px;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        outline: none;
+        transition: all 0.3s ease;
+      }
+
+      input[type="text"]:focus,
+      input[type="password"]:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+      }
+
+      input[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        font-size: 16px;
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+
+      #validation-userName {
+        font-size: 15px;
+      }
+      img {
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+      }
+
+      img#tiger-run {
+        display: block;
+        position: relative;
+        left: 0;
+        margin: 0 0 20px 0;
+        width: 300px;
+        height: 300px;
+      }
+      #run-btn {
+        background-color: #007bff;
+        color: white;
+        font-size: 16px;
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Task 01:A -->
+    <div id="div-style"></div>
+    <button id="change-style">Change Style</button>
+    <hr />
+    <!-- Task 01:B -->
+    <script>
+      // Task 01:A
+      $(document).ready(function () {
+        $("#change-style").click(function () {
+          $("#div-style").css({ border: "3px solid red" });
+        });
+      });
+    </script>
+
+    <!-- ------------------------------------------------------------------------------------------ -->
+    <!-- Task 01:B -->
+    <div id="hover-width"></div>
+    <script>
+      $(document).ready(function () {
+        $("#hover-width").mouseover(function () {
+          $("#hover-width").toggleClass("main");
+        });
+      });
+    </script>
+    <hr />
+
+    <!-- ------------------------------------------------------------------------------------------ -->
+    <!-- Task 01:C -->
+    <img src="happy.jpeg" alt="" id="face" />
+    <script>
+      $(document).ready(function () {
+        $("#face").mouseover(function () {
+          $("#face").attr("src", "sad.webp");
+        });
+        $("#face").mouseout(function () {
+          $("#face").attr("src", "happy.jpeg");
+        });
+      });
+    </script>
+    <hr />
+    <!-- ------------------------------------------------------------------------------------------ -->
+    <!-- Task 01:D -->
+    <form action="welcome.html">
+      <input
+        type="text"
+        name="userName"
+        id="userName"
+        placeholder="Enter your user name"
+      />
+      <span id="validation-userName"
+        >*User Name must be bigger than 5 characters</span
+      >
+
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Enter your password"
+      />
+      <input type="submit" value="subimt" id="submit-btn" />
+    </form>
+    <script>
+      $(document).ready(function () {
+        $("form").submit(function (e) {
+          e.preventDefault();
+          let userName = $("#userName").val();
+          if (userName.length >= 5) {
+            $("#validation-userName").text("Valid").css({
+              color: "green",
+              "font-weight": "bold",
+            });
+            window.location.href = `welcome.html?user=${userName}`;
+          } else {
+            $("#validation-userName").text("Not Valid").css({
+              color: "red",
+              "font-weight": "bold",
+            });
+          }
+        });
+      });
+    </script>
+    <hr />
+
+    <!-- ------------------------------------------------------------------------------------------ -->
+    <!-- Task 01:E -->
+    <img
+      src="happy.jpeg"
+      alt=""
+      style="width: 200px; height: 200px; object-fit: contain"
+      id="fade-face"
+    />
+    <button id="fade-btn">Fade Out</button>
+    <script>
+      $(document).ready(function () {
+        $("#fade-btn").click(function () {
+          let fadeBtnState = $("#fade-btn").text();
+          if (fadeBtnState === "Fade In") {
+            $("#fade-face").fadeIn();
+            $("#fade-btn").text("Fade Out");
+          } else {
+            $("#fade-face").fadeOut();
+            $("#fade-btn").text("Fade In");
+          }
+        });
+      });
+    </script>
+    <hr />
+
+    <!-- ------------------------------------------------------------------------------------------ -->
+    <!-- Task 01:E -->
+    <img src="tiger-run.gif" alt="tiger-run" id="tiger-run" />
+    <button id="run-btn">Running Forward</button>
+    <script>
+      $(document).ready(function () {
+        $("#run-btn").click(function () {
+          const windowWidth = $(window).width();
+          const runSpace = windowWidth;
+          const runBtn = $("#run-btn").text();
+          if (runBtn === "Running Forward") {
+            $("#tiger-run").animate({ left: runSpace }, 4000);
+            $("#run-btn").text("Running Back");
+            $("#tiger-run").css({ transform: " rotateY(0)" });
+          } else {
+            $("#tiger-run").animate({ left: 0 }, 4000);
+            $("#run-btn").text("Running Forward");
+            $("#tiger-run").css({ transform: " rotateY(180deg)" });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
