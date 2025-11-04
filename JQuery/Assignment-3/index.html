@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      body.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      #logIn {
+        background-color: #007bff;
+        color: white;
+        padding: 13px 30px;
+        outline: none;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+      }
+
+      #logIn:hover {
+        background-color: #339cff;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="message">Please Log in</h2>
+    <button id="logIn">LogIn</button>
+    <script>
+      $(document).ready(function () {
+        $("#logIn").click(function () {
+          window.open("login.html", "_blank", "width=600,height=600");
+          isDisable(true);
+        });
+      });
+
+      function receiveData(username) {
+        $("#message").text(`Welcome ${username} !`);
+        isDisable(false);
+        $("#logIn").hide();
+      }
+
+      function isDisable(state) {
+        if (state === true) {
+          $("body").addClass("disabled");
+        } else {
+          $("body").removeClass("disabled");
+        }
+      }
+    </script>
+  </body>
+</html>

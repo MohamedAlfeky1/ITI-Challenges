@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Drag and Drop with jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <style>
+      body {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      #dropDiv {
+        width: 100px;
+        height: 100px;
+        border: 2px solid black;
+        background-color: lightblue;
+        margin: 20px auto;
+      }
+
+      #dragImg {
+        width: 100px;
+        height: 100px;
+        cursor: grab;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Drag the image into the box</h2>
+
+    <img id="dragImg" src="tiger-run.gif" alt="draggable image" />
+    <div id="dropDiv"></div>
+
+    <script>
+      $(document).ready(function () {
+        let originalPosition = $("#dragImg").position();
+
+        $("#dragImg").draggable({
+          revert: function (event, ui) {
+            return !event;
+          },
+        });
+
+        $("#dropDiv").droppable({
+          accept: "#dragImg",
+          drop: function (event, ui) {
+            $("#dropDiv").css("background-color", "lightgreen");
+          },
+          out: function (event, ui) {
+            $("#dropDiv").css("background-color", "lightblue");
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 800px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        text-align: center;
+        color: #444;
+      }
+
+      input[type="text"] {
+        width: calc(100% - 120px);
+        padding: 10px;
+        margin-right: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+
+      button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: #4caf50;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid #ddd;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      img {
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+      }
+
+      hr {
+        margin: 20px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Display User by ID</h2>
+      <input type="text" id="userId" placeholder="Enter user ID" />
+      <button id="displayBtn">Display User</button>
+      <div id="userData"></div>
+      <hr />
+
+      <h2>All Users</h2>
+      <button id="showAll">Show All Users</button>
+      <div id="allUsers"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $("#displayBtn").click(function () {
+        const userId = $("#userId").val();
+        if (!userId || userId <= 0) {
+          $("#userData")
+            .html("<p>Enter Valid User ID</p>")
+            .css({ color: "red" });
+          return;
+        }
+
+        if (isNaN(userId)) {
+          $("#userData")
+            .html("<p>User ID must be a number</p>")
+            .css({ color: "red" });
+          return;
+        }
+
+        $.ajax({
+          url: `https://dummyjson.com/users/${userId}`,
+          method: "GET",
+          success: function (res) {
+            $("#userData").html(`
+            <table>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Avatar</th>
+              </tr>
+              <tr>
+                <td>${res.firstName}</td>
+                <td>${res.lastName}</td>
+                <td><img src="${res.image}" /></td>
+              </tr>
+            </table>
+          `);
+          },
+          error: function () {
+            $("#userData").html("<p>User not found</p>").css({ color: "red" });
+          },
+        });
+      });
+
+      $("#showAll").click(function () {
+        $.ajax({
+          url: "https://dummyjson.com/users",
+          method: "GET",
+          success: function (response) {
+            let usersHTML = `
+            <table>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Avatar</th>
+              </tr>
+          `;
+            $.each(response.users, function (i, user) {
+              usersHTML += `
+              <tr>
+                <td>${user.firstName}</td>
+                <td>${user.lastName}</td>
+                <td><img src="${user.image}" /></td>
+              </tr>
+            `;
+            });
+            usersHTML += `</table>`;
+            $("#allUsers").html(usersHTML);
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

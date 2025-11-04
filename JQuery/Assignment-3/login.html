@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LogIn</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      form {
+        width: 320px;
+        background-color: #fff;
+        padding: 25px 35px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        display: block;
+        font-size: 14px;
+        color: #333;
+        margin-top: 12px;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+        transition: border-color 0.3s, box-shadow 0.3s;
+      }
+
+      input[type="text"]:focus,
+      input[type="password"]:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+        outline: none;
+      }
+
+      input[type="checkbox"] {
+        margin-right: 6px;
+        transform: scale(1.1);
+        cursor: pointer;
+      }
+
+      label[for="rememberMe"] {
+        display: flex;
+        align-items: center;
+        margin-top: 15px;
+        font-size: 14px;
+      }
+
+      input[type="submit"] {
+        width: 48%;
+        padding: 10px;
+        margin-top: 20px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 14px;
+        transition: 0.3s;
+      }
+
+      input[value="LogIn"] {
+        background-color: #007bff;
+        color: white;
+      }
+
+      input[value="LogIn"]:hover {
+        background-color: #339cff;
+      }
+
+      input[value="Cancel"] {
+        background-color: #dc3545;
+        color: white;
+      }
+
+      input[value="Cancel"]:hover {
+        background-color: #ff5c5c;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="index.html">
+      <label for="userName">User Name</label>
+      <input
+        type="text"
+        name="userName"
+        id="userName"
+        placeholder="Enter your user name"
+      />
+      <label for="password">Password</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Enter your password"
+      />
+      <label for="rememberMe">
+        <input type="checkbox" name="rememberMe" id="rememberMe" /> Remember Me
+      </label>
+      <input type="submit" value="LogIn" id="login-btn" />
+      <input type="submit" value="Cancel" id="cancel" />
+    </form>
+
+    <script>
+      $(document).ready(function () {
+        $("#login-btn").click(function () {
+          const userName = $("#userName").val();
+          window.opener.receiveData(userName);
+          window.close();
+        });
+        $("#cancel").click(function () {
+          window.close();
+          window.opener.isDisable(false);
+        });
+      });
+    </script>
+  </body>
+</html>
