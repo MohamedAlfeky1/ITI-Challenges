@@ -6,6 +6,15 @@ It belongs to the **ITI (Information Technology Institute)** training program.
 
 📚 The course materials are **not allowed to be shared or published publicly** in compliance with ITI’s confidentiality and copyright policies.
 
+---
+
+## 🏆 My Certificate
+
+- View my certificate on Mahara Tech: [Certificate Verification Link](https://maharatech.gov.eg/mod/customcert/verify_certificate.php?code=iJSQv6vDD5&qrcode=1)
+- See my [certificate post on LinkedIn](<https://www.linkedin.com/feed/update/urn:li:activity:7391771473373302785/?commentUrn=urn%3Ali%3Acomment%3A(activity%3A7391771473373302785%2C7391893447328309248)&dashCommentUrn=urn%3Ali%3Afsd_comment%3A(7391893447328309248%2Curn%3Ali%3Aactivity%3A7391771473373302785)>)
+
+---
+
 In this course, I learned the following database fundamentals:
 
 - **DBMS concepts and basics**  
