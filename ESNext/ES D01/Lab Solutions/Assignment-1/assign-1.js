@@ -11,31 +11,31 @@ const students = [
 //   return stName;
 // }
 // console.log(namesArr(students));
-// ----------------------------------------------------------------------------------------------------------------
 
+// ----------------------------------------------------------------------------------------------------------------
 // 2- Get all students who have a grade greater than or equal to 85.(filter)
 // let studentsWithHighGrades = students.filter((st) => st.grade <= 85);
 // console.log(studentsWithHighGrades);
-// ----------------------------------------------------------------------------------------------------------------
 
+// ----------------------------------------------------------------------------------------------------------------
 // 3- Find the student whose name is "Sara".( list object details)
 // let findSara = students.find((st) => st.name.toLowerCase() === "sara");
 // console.log(findSara);
-// ----------------------------------------------------------------------------------------------------------------
 
+// ----------------------------------------------------------------------------------------------------------------
 // 4- Calculate the average grade of all students.(reduce)
 // const getAvrgGrades = (students) => {
 //   const sumGrades = students.reduce((acc, st) => acc + st.grade, 0);
 //   return Math.round(sumGrades / students.length);
 // };
 // console.log(getAvrgGrades(students));
-// ----------------------------------------------------------------------------------------------------------------
 
+// ----------------------------------------------------------------------------------------------------------------
 // 5- Sort students by grade (descending) using arrow function in sort.
 // let desSort = students.sort((a, b) => a.grade - b.grade);
 // console.log(desSort);
-// ----------------------------------------------------------------------------------------------------------------
 
+// ----------------------------------------------------------------------------------------------------------------
 // 6- Print Students using forEach arr fun
 // const stDiv = document.getElementById("students");
 // students.forEach((st) => {
@@ -57,37 +57,74 @@ const students = [
 //   stDiv.appendChild(stGrade);
 //   stDiv.appendChild(stCity);
 // });
-// ----------------------------------------------------------------------------------------------------------------
 
+// ----------------------------------------------------------------------------------------------------------------
 // 7- Make a shallow copy of the students array using spread.
 // let newArr = [...students];
 // newArr[0].name = "Alfeky";
 // console.log(newArr[0]);
+
 // ----------------------------------------------------------------------------------------------------------------
-
 // 8- Add a new student object into the array using spread.
-let newStudentArr1 = [...students];
-let idCounter1 = newStudentArr1.length + 1;
+// let newStudentArr1 = [...students];
+// let idCounter1 = newStudentArr1.length + 1;
 
-newStudentArr1.push({
-  id: idCounter1++,
-  name: "mohamed",
-  grade: 90,
-  city: "Cairo",
-});
-newStudentArr1.push({
-  id: idCounter1++,
-  name: "asasd",
-  grade: 90,
-  city: "Caasdasdiro",
-});
-console.log(newStudentArr1);
+// newStudentArr1.push({
+//   id: idCounter1++,
+//   name: "mohamed",
+//   grade: 90,
+//   city: "Cairo",
+// });
+// newStudentArr1.push({
+//   id: idCounter1++,
+//   name: "asasd",
+//   grade: 90,
+//   city: "Caasdasdiro",
+// });
+// console.log(newStudentArr1);
 
-// another solution
-let newStudentArr2 = [
-  ...students,
-  { id: idCounter++, name: "Said", grade: 90, city: "Cairo" },
-];
-console.log(newStudentArr2);
+// // another solution
+// let newStudentArr2 = [
+//   ...students,
+//   { id: idCounter++, name: "Said", grade: 90, city: "Cairo" },
+// ];
+// console.log(newStudentArr2);
+
+// ----------------------------------------------------------------------------------------------------------------
+// 9- Suppose you have another array of students, merge it with the first array using spread
+// const students2 = [
+//   { id: 5, name: "Mohamed", grade: 87, city: "Giza" },
+//   { id: 6, name: "Nour", grade: 72, city: "Assuit" },
+//   { id: 7, name: "Ahmed", grade: 83, city: "Alexandria" },
+//   { id: 8, name: "Amir", grade: 91, city: "Cairo" },
+// ];
+
+// let mergedStudents = [...students, ...students2];
+// console.log("Merged Students", mergedStudents);
+
+// ----------------------------------------------------------------------------------------------------------------
+// 10- Update "Omar"’s grade to 95 without mutating the original array (use spread inside map).
+// let deepCopy = structuredClone(students);
+// let updatedStudents = deepCopy.map((student) =>
+//   student.name === "Omar" ? { ...student, grade: 95 } : student
+// );
+// console.log(students);
+// console.log(updatedStudents);
+
+// ----------------------------------------------------------------------------------------------------------------
+// 11- Remove the student with id = 2 using filter + spread.
+// let removedStd = students.filter((std) => std.id != 2);
+// console.log(removedStd);
+
+// ----------------------------------------------------------------------------------------------------------------
+// 12- Take out the first student and keep the rest in another array using destructuring + spread
+// let [, ...rest] = students;
+// console.log(rest);
+
+// ----------------------------------------------------------------------------------------------------------------
+// 13- destruct and Extract the first student into a variable, and keep the rest into another array using rest
+// let [firstStd, ...rest] = students;
+// console.log(firstStd);
+// console.log(rest);
 
 // ----------------------------------------------------------------------------------------------------------------

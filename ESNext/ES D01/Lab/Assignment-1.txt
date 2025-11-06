@@ -39,5 +39,13 @@ do the following using arrow function
 
 
 
+______________________________________________________
+Assigment 2 
 
+Write a function printNames(...names) that accepts any number of student objects  and prints their name using spread operator .
+______________________________________________________
+
+Ass 3 
+
+- try all cases in lecture to confirm diffrences between var , let , const 
 

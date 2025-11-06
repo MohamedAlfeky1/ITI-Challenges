@@ -1,0 +1,3 @@
+Assignment 3 
+
+- try all cases in lecture to confirm diffrences between var , let , const 
