@@ -32,7 +32,7 @@
 // 3️⃣ Reassignment difference
 // var and let can be reassigned
 // var name1 = "Ali";
-// name1 = "Sara"; // ✅ works
+// name1 = "Sara0"; // ✅ works
 
 // let name2 = "Omar";
 // name2 = "Mona"; // ✅ works

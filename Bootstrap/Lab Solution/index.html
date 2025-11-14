@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resturant</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+  </head>
+  <body class="overflow-x-hidden">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+      <div class="container d-flex justify-content-between">
+        <a class="navbar-brand" href="#">Resturant</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="carouselExample" class="carousel slide mb-5" style="height: 75vh">
+      <div class="carousel-inner h-100">
+        <div class="carousel-item active h-100">
+          <img
+            src="/assets/images/resturant-1.jpg"
+            class="d-block w-100"
+            alt="resturant"
+            style="height: 100%; object-fit: cover"
+          />
+        </div>
+        <div class="carousel-item h-100">
+          <img
+            src="/assets/images/resturant-2.jpg"
+            class="d-block w-100"
+            alt="resturant"
+            style="height: 100%; object-fit: cover"
+          />
+        </div>
+        <div class="carousel-item h-100">
+          <img
+            src="/assets/images/resturant-3.jpg"
+            class="d-block w-100"
+            alt="resturant"
+            style="height: 100%; object-fit: cover"
+          />
+        </div>
+      </div>
+
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <div class="container mb-5">
+      <h3 class="text-center mb-3">Our menu</h3>
+      <div class="row justify-content-center gx-4 gy-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card p-0">
+            <img src="assets/images/menu.jpg" class="card-img-top" alt="menu" />
+            <div class="card-body">
+              <h5 class="card-title">Grilled Salmon</h5>
+              <p class="card-text">Freshly grilled salmon with herbs.</p>
+              <span class="d-block fw-bold">$15.99 </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card p-0">
+            <img src="assets/images/menu.jpg" class="card-img-top" alt="menu" />
+            <div class="card-body">
+              <h5 class="card-title">Pasta Carbonara</h5>
+              <p class="card-text">Creamy pasta with bacon and cheese.</p>
+              <span class="d-block fw-bold">$12.99</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card p-0">
+            <img src="assets/images/menu.jpg" class="card-img-top" alt="menu" />
+            <div class="card-body">
+              <h5 class="card-title">Cheesecake</h5>
+              <p class="card-text">Classic New York-style cheesecake.</p>
+              <span class="d-block fw-bold">$7.99</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mb-5">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-6">
+          <img
+            src="assets/images/resturant-1.jpg"
+            class="w-100 h-100 rounded-2"
+            alt="resturant"
+          />
+        </div>
+
+        <div class="col-12 col-md-6">
+          <h2>About Us</h2>
+          <p>
+            We are a family-owned restaurant dedicated to serving delicious,
+            high-quality meals made from fresh, locally sourced ingredients. Our
+            mission is to provide an unforgettable dining experience for every
+            guest.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mb-5">
+      <h3 class="text-center mb-2">Contact Us</h3>
+    </div>
+
+    <div class="container mb-5">
+      <form action="">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Name</label>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="User Name"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput2" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleFormControlInput2"
+            placeholder="name@example.com"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label"
+            >Message</label
+          >
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="3"
+          ></textarea>
+          <div>
+            <button type="submit" class="btn btn-primary mt-5">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <footer class="bg-dark text-white py-4">
+      <div class="container text-center">
+        <p class="mb-2">© 2025 Restaurant. All rights reserved.</p>
+
+        <div class="d-flex justify-content-center gap-4">
+          <a href="#" class="text-white text-decoration-none">Facebook</a>
+          <a href="#" class="text-white text-decoration-none">Twitter</a>
+          <a href="#" class="text-white text-decoration-none">Instagram</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

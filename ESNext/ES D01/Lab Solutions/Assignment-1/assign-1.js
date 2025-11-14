@@ -128,3 +128,6 @@ const students = [
 // console.log(rest);
 
 // ----------------------------------------------------------------------------------------------------------------
+// 14 - Skip the first two students and store the third one in a variable.
+// let [, ,thirdSt] = students;
+// console.log(thirdSt);
