@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JQuery Assignment Day 1</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="nav-buttons">
+      <div id="about" class="btn">About</div>
+      <div id="gallery" class="btn">Gallery</div>
+      <div id="services" class="btn">
+        Services
+        <div class="service-menu">
+          <div class="item">Item #1</div>
+          <div class="item">Item #2</div>
+          <div class="item">Item #3</div>
+        </div>
+      </div>
+      <div id="complain" class="btn">Complain</div>
+    </div>
+
+    <div id="content"></div>
+
+    <!-- About Us -->
+    <script>
+      $("#about").click(function () {
+        $("#content").html(`
+          <div class="about-box">
+            <h4>Story about snow man — a quiet tale drifting in winter air.</h4>
+          </div>
+        `);
+      });
+    </script>
+    <!-- Gallery -->
+    <script>
+      $("#gallery").click(function () {
+        $("#content").html(`
+          <div class="gallery-box">
+            <div class="left-arrow arrow">
+              <img src="assets/images/left.png" alt="left-arrow" />
+            </div>
+
+            <div class="gallery-img">
+              <img id="galleryImage" src="assets/images/1.jpg" alt="image" />
+            </div>
+
+            <div class="right-arrow arrow">
+              <img src="assets/images/right.png" alt="right-arrow" />
+            </div>
+          </div>
+        `);
+      });
+
+      let galleryImages = [
+        "assets/images/1.jpg",
+        "assets/images/2.jpg",
+        "assets/images/3.jpg",
+        "assets/images/5.jpg",
+        "assets/images/6.jpg",
+        "assets/images/7.jpg",
+        "assets/images/8.jpg",
+      ];
+
+      let index = 0;
+
+      $(document).on("click", ".right-arrow", function () {
+        index++;
+
+        if (index >= galleryImages.length) {
+          index = 0;
+        }
+
+        $("#galleryImage").attr("src", galleryImages[index]);
+      });
+
+      $(document).on("click", ".left-arrow", function () {
+        index--;
+
+        if (index < 0) {
+          index = galleryImages.length - 1;
+        }
+
+        $("#galleryImage").attr("src", galleryImages[index]);
+      });
+    </script>
+    <!-- Services -->
+    <script>
+      $("#services").click(function () {
+        $("#content").html("");
+        $(this).find(".service-menu").slideToggle(200);
+      });
+    </script>
+    <!-- Complain -->
+    <script>
+      $("#complain").click(function () {
+        $("#content").html(`
+      <div class="complain-box">
+        <h3>Send your complaint</h3>
+        <form id="complainForm">
+
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required />
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required />
+          </div>
+
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="text" id="phone" placeholder="Enter your phone" required />
+          </div>
+
+          <div class="form-group">
+            <label>Message</label>
+            <textarea id="message" placeholder="Write your complaint" required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Send</button>
+        </form>
+      </div>
+    `);
+      });
+
+      $(document).on("submit", "#complainForm", function (e) {
+        e.preventDefault();
+
+        let name = $("#name").val();
+        let email = $("#email").val();
+        let phone = $("#phone").val();
+        let message = $("#message").val();
+
+        $("#content").html(`
+    <div class="complain-data">
+      <h3>Complaint Submitted</h3>
+
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Phone:</strong> ${phone}</p>
+      <p><strong>Message:</strong> ${message}</p>
+    </div>
+  `);
+      });
+    </script>
+  </body>
+</html>
