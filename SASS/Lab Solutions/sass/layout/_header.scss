@@ -1,0 +1,21 @@
+@import "../abstract/variable";
+nav {
+  background-color: $primary-color;
+  color: $font-primary-color;
+  padding: $padding-spacing;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 100px;
+  .logo {
+    font-size: 20px;
+  }
+  .links {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    a {
+      @extend %anchor-links;
+    }
+  }
+}

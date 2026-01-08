@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind CSS Assignment</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="bg-sky-100">
+    <div class="flex justify-center items-center">
+      <div class="bg-white w-96 my-12 rounded-xl p-5">
+        <!-- User Image -->
+        <div
+          class="my-0 mx-auto w-32 h-32 rounded-full bg-gradient-to-br from-purple-400 via-purple-500 to-pink-500"
+        ></div>
+        <!-- Info -->
+        <h3 class="text-xl font-bold text-center mt-6">Alex Johnson</h3>
+        <p class="text-center text-gray-500">@alexj</p>
+        <p class="text-center text-gray-600 mt-3">
+          Digital designer & photography enthusiast. <br />Love to travel and
+          capture moments.
+        </p>
+        <!-- Profile Stats -->
+        <div
+          class="border-y-1 border-gray-200 mt-5 py-4 flex justify-around items-center"
+        >
+          <div class="flex flex-col">
+            <span class="font-bold text-lg text-center">247</span>
+            <span class="text-sm text-gray-500">Posts</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-bold text-lg text-center">5.2K</span>
+            <span class="text-sm text-gray-500">Followers</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-bold text-lg text-center">892</span>
+            <span class="text-sm text-gray-500">Following</span>
+          </div>
+        </div>
+        <!-- Action Buttons -->
+        <div class="flex justify-between items-center mt-6">
+          <button
+            class="cursor-pointer text-white bg-blue-600 py-3 px-14 rounded-lg text-md font-semibold transition-all duration-200 hover:bg-blue-700 hover:shadow-md hover:-translate-y-0.5"
+          >
+            Follow
+          </button>
+
+          <button
+            class="cursor-pointer text-slate-900 bg-gray-300 py-3 px-14 rounded-lg text-md font-semibold transition-all duration-200 hover:bg-gray-400 hover:shadow-md hover:-translate-y-0.5"
+          >
+            Message
+          </button>
+        </div>
+        <!-- Recent Photos -->
+        <h3 class="text-lg font-semibold mt-6">Recent Photos</h3>
+        <div class="flex flex-wrap gap-3 mt-3">
+          <!-- Box 1 -->
+          <div
+            class="basis-[30%] h-28 rounded-2xl shadow-md bg-gradient-to-br from-teal-300 to-green-400"
+          ></div>
+
+          <!-- Box 2 -->
+          <div
+            class="basis-[30%] h-28 rounded-2xl shadow-md bg-gradient-to-br from-yellow-400 to-orange-500"
+          ></div>
+
+          <!-- Box 3 -->
+          <div
+            class="basis-[30%] h-28 rounded-2xl shadow-md bg-gradient-to-br from-purple-400 to-pink-500"
+          ></div>
+
+          <!-- Box 4 -->
+          <div
+            class="basis-[30%] h-28 rounded-2xl shadow-md bg-gradient-to-br from-indigo-400 to-purple-400"
+          ></div>
+
+          <!-- Box 5 -->
+          <div
+            class="basis-[30%] h-28 rounded-2xl shadow-md bg-gradient-to-br from-orange-400 to-red-500"
+          ></div>
+
+          <!-- Box 6 -->
+          <div
+            class="basis-[30%] h-28 rounded-2xl shadow-md bg-gradient-to-br from-gray-400 to-gray-600"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
